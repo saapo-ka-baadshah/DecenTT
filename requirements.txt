@@ -1,0 +1,4 @@
+paho-mqtt
+coloredlogs
+tqdm
+python-dotenv

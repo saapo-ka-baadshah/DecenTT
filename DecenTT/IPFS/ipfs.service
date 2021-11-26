@@ -1,0 +1,13 @@
+[Unit]
+Description=IPFS Daemon Service
+After=network.target
+
+[Service]
+ExecStart=ipfs daemon
+Restart=always
+StandardOutput=file:/var/log/ipfs/ipfs.log
+StandardError=file:/var/log/ipfs/error.log
+ExecStartPost=/bin/sleep 2
+
+[Install]
+WantedBy=multi-user.target
