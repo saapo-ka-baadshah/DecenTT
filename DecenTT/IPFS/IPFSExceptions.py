@@ -19,6 +19,4 @@ class InvalidCallback(Exception):
         self.called_callback = callback
 
     def __str__(self):
-        return f"{self.called_callback.__name__} is not a valid Function!" \
-               f"\n" \
-               f"NOTE: \t First Argument is always a JSON-String Payload."
+        return f"{self.called_callback.__name__} is not a valid Function!"

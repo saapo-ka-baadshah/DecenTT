@@ -1,8 +1,3 @@
-class MQTTValueError(Exception):
-    """Wrong Value argument error"""
-    pass
-
-
 class InvalidCallback(Exception):
     """
         Subjected Callback is not a valid callback
