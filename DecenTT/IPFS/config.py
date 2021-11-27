@@ -1,6 +1,6 @@
 """
 Module:             IPFS Client
-SubModule:          Setup Config
+SubModule:          Config
 Author:             Amey Mahadik <https://github.com/saapo-ka-baadshah>
 """
 import wget
@@ -15,7 +15,15 @@ import subprocess
 
 import shutil
 
+# The endpoints go here:
+ENDPOINTS = {
+    "pubsub": {
+        "sub": "/api/v0/pubsub/sub",
+        "pub": "/api/v0/pubsub/pub"
+    }
+}
 
+# The Setup Class goes here:
 class Setup:
     def __init__(self) -> None:
         self.cwd = os.getcwd()

@@ -1,6 +1,6 @@
 import os.path
 
-from DecenTT.IPFS.locales.topo_bootstrap import getBootstrapNodes
+from DecenTT.IPFS.locales.env_config import getBootstrapNodes
 import requests
 from DecenTT.IPFS.locales.IPFSLocalesExceptions import *
 from DecenTT.IPFS.logger import logger

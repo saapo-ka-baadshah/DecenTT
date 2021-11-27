@@ -1,6 +1,6 @@
 import subprocess
 from DecenTT.IPFS.locales.bootstrap import BStrapper
-
+from DecenTT.IPFS.pubsub import Client
 
 class Daemon:
     def __init__(self, **kwargs):
@@ -20,16 +20,3 @@ class Daemon:
         self.stop()
         self.daemon = self.__start_daemon(**self._kwargs)
 
-
-class Client:
-    def __init__(self) -> None:
-        pass
-
-    def init(self) -> None:
-        pass
-
-    def publish(self):
-        pass
-
-    def subscribe(self):
-        pass
