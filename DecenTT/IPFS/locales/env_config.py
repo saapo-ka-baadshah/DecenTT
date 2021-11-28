@@ -2,14 +2,14 @@ import os
 from DecenTT.IPFS.locales.IPFSLocalesExceptions import *
 
 
-def onLoadEnv():
+def onLoadEnv(path: str = None):
     import dotenv
-    dotenv.load_dotenv()
+    dotenv.load_dotenv() if path is None else dotenv.load_dotenv(dotenv_path=path)
 
 
-def getBootstrapNodes() -> list:
+def getBootstrapNodes(path: str = None) -> list:
     import re
-    onLoadEnv()
+    onLoadEnv(path=path)
 
     pat = re.compile("BOOTSTRAP")
     bs_keys = list(filter(pat.match, list(os.environ)))
@@ -23,7 +23,7 @@ def getBootstrapNodes() -> list:
 
     return nodes
 
+
 def getIPFSHost() -> str:
     onLoadEnv()
     return os.environ["DEFAULT_HOST"]
-

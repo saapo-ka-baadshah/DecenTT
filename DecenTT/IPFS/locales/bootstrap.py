@@ -13,8 +13,8 @@ class BStrapper:
     >>> bstrapper.load_all()
     """
 
-    def __init__(self) -> None:
-        pass
+    def __init__(self, path: str = None) -> None:
+        self.__env_path = path
 
     def add(self, address: str):
         valid = self.__validate(address)
@@ -31,17 +31,17 @@ class BStrapper:
         domain_list = address.split("/")
         return domain_list[-1]
 
-    def record(self, address:str):
+    def record(self, address: str):
         valid = self.__validate(address=address)
         if valid:
-            bs_list = getBootstrapNodes()
+            bs_list = getBootstrapNodes(self.__env_path)
             last_index = len(bs_list)
             file_path = os.path.dirname(os.path.realpath(__file__))
             with open(f"{file_path}/.env", 'ab') as f:
                 f.write(f"BOOTSTRAP_{last_index}={address}\n")
 
     def load_all(self):
-        bs_list = getBootstrapNodes()
+        bs_list = getBootstrapNodes(self.__env_path)
         for bs in bs_list:
             self.add(address=bs)
 
