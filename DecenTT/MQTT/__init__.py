@@ -3,6 +3,7 @@ from paho.mqtt import client
 from DecenTT.MQTT.MQTTErrors import InvalidCallback
 from DecenTT.MQTT.logger import logger
 
+
 class Client:
     def __init__(
             self,
@@ -32,19 +33,23 @@ class Client:
             self.client.on_publish = self.__on_publish
 
         self.client.on_message = self.__on_message
+
+        # Set username password
+        if self.__uname:
+            self.client.username_pw_set(username=self.__uname, password=self.__pass)
+
         # Connect to the Client
         self.client.connect(self.__host, self.__port)
 
     def __int_on_message(self, client, userdata, msg):
         logger.info(f"{msg.topic} <- {msg.payload}")
 
-    def subscribe(self, topic:str, callback):
+    def subscribe(self, topic: str, callback):
         # check for valid callback
         if not ('function' in str(type(callback))):
             raise InvalidCallback(callback)
         self.client.on_message = callback
         self.client.subscribe(topic=topic)
 
-    def publish(self, topic:str, payload:str):
+    def publish(self, topic: str, payload: str):
         self.client.publish(topic=topic, payload=payload)
-

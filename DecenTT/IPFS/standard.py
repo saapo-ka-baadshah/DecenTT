@@ -23,6 +23,9 @@ class IPFSResponse:
             def decode(self)->str:
                 return b64decode(self.__data)
 
+            def __str__(self):
+                return self.__data
+
 
         def __init__(self, topic:str, data:str)->None:
             self.topic = topic

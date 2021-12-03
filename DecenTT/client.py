@@ -24,7 +24,14 @@ class Client:
     ) -> None:
         self.clients = [
             mClient(
-                host=host
+                host=host,
+                port=port,
+                username=username,
+                password=password,
+                on_connect=on_connect,
+                on_publish=on_publish,
+                on_message=on_message,
+                log_path=log_path
             ),
 
             iClient()
