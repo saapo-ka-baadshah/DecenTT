@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+DecenTT/.env
+DecenTT_saapo_ka_baadshah.egg-info/PKG-INFO
+DecenTT_saapo_ka_baadshah.egg-info/SOURCES.txt
+DecenTT_saapo_ka_baadshah.egg-info/dependency_links.txt
+DecenTT_saapo_ka_baadshah.egg-info/requires.txt
+DecenTT_saapo_ka_baadshah.egg-info/top_level.txt
