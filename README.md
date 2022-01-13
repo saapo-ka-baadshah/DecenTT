@@ -167,7 +167,16 @@ client.subscribe(topic="secure/ABC", callback=sample_callback)  # This topic is 
 
 ```
 
-
+## Changelog
+New features in v0.0.2
+- Now you can subscribe to multiple topics, just as paho mqtt,
+    ```Python
+    topic_list=[
+        ("topic1", 0),
+        ("topic2", 1),
+        # (<topic name>, <qos in integer>)
+    ]
+    ```
 
 
 ## Contributors

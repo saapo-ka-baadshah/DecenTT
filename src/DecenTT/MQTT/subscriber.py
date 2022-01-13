@@ -4,7 +4,7 @@ from DecenTT.env.config import SUBSYSTEM_PATH
 
 
 class Subscriber:
-    def __init__(self, client:Client, topic:str, callback:any = None, qos:int = 1, log_path:str = f"{SUBSYSTEM_PATH}/subscriber.log", log_level:str="DEBUG") -> None:
+    def __init__(self, client:Client, topic:any, callback:any = None, qos:int = 1, log_path:str = f"{SUBSYSTEM_PATH}/subscriber.log", log_level:str="DEBUG") -> None:
         self.__client = client.client
         if(not(callback == None)):
             self.__client.on_message = callback

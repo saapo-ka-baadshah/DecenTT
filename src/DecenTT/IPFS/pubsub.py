@@ -80,7 +80,11 @@ class Client:
         self.host_port = int(self.host.split(":")[1])
         self.ipfs_client = ipfsApi.Client(self.host_address, self.host_port)
 
-    def subscribe(self, topic: str, callback):
+    def subscribe(self, topic: any, callback):
+        if not (isinstance(topic, list) or isinstance(topic, str)):
+            raise TopicIncompatibleType
+        if isinstance(topic, list):
+            return [self.Subscription(topic=t_i, callback=callback, client=self.ipfs_client) for t_i in list(topic)]
         return self.Subscription(topic=topic, callback=callback, client=self.ipfs_client)
 
     def publish(self, topic: str, payload: str) -> None:

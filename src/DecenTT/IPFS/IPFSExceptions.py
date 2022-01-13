@@ -1,6 +1,14 @@
 import platform
 
 
+class TopicIncompatibleType(Exception):
+    """
+        Subjected Topic is not a compatible type
+    """
+    def __str__(self):
+        return f"Topic should either be a string or a list!"
+
+
 class UnsupportedPlatform(Exception):
     """
         Subjected Platform is currently not supported by the IPFS installer.

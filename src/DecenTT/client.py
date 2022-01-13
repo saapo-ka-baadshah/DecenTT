@@ -1,5 +1,5 @@
-from DecenTT.DecenTTErrors import InvalidCallback
-from DecenTT.IPFS import Client as iClient
+from DecenTT.DecenTTErrors import InvalidCallback, TopicIncompatibleType
+from DecenTT.IPFS import Client as iClient  # Equipped with list of topics
 from DecenTT.MQTT import Client as mClient
 
 
@@ -44,10 +44,33 @@ class Client:
         if self.__keyword in topic: return self.clients[1]
         return self.clients[0]
 
-    def subscribe(self, topic: str, callback):
+    def __map_clients_to_topic(self, topic: list) -> tuple:
+        client_0_list = list()
+        client_1_list = list()
+        for t_i in topic:
+            if self.__keyword in str(t_i[0]):
+                client_1_list.append(t_i[0])
+            else:
+                client_0_list.append(t_i)
+
+        return client_0_list, client_1_list
+
+    def subscribe(self, topic: any, callback):
+
+        # check for the validity of the topic as data_structure
+        if not (isinstance(topic, list) or isinstance(topic, str)):
+            raise TopicIncompatibleType
+
         # check for valid callback
         if not ('function' in str(type(callback))):
             raise InvalidCallback(callback)
+
+        if isinstance(topic, list):
+            c0_topics, c1_topics = self.__map_clients_to_topic(topic= list(topic))
+            self.clients[0].subscribe(topic=c0_topics, callback=callback)
+            self.clients[1].subscribe(topic=c1_topics, callback=callback)
+            return
+
         client = self.__which(topic=topic)
         client.subscribe(topic=topic, callback=callback)
 

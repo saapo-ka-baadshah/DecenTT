@@ -17,7 +17,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="DecenTT",
-    version="0.0.1",
+    version="0.0.2",
     author="Amey Mahadik",
     author_email="ameyarm@gmail.com",
     description="Decentralized Telemetry Transport (DecenTT)",

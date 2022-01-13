@@ -44,7 +44,7 @@ class Client:
     def __int_on_message(self, client, userdata, msg):
         logger.info(f"{msg.topic} <- {msg.payload}")
 
-    def subscribe(self, topic: str, callback):
+    def subscribe(self, topic, callback):
         # check for valid callback
         if not ('function' in str(type(callback))):
             raise InvalidCallback(callback)
