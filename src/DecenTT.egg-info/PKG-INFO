@@ -1,3 +1,20 @@
+Metadata-Version: 2.1
+Name: DecenTT
+Version: 0.0.2
+Summary: Decentralized Telemetry Transport (DecenTT)
+Home-page: https://github.com/saapo-ka-baadshah/DecenTT
+Author: Amey Mahadik
+Author-email: ameyarm@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/saapo-ka-baadshah/DecenTT/issues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # DecenTT : Decentralized Telemetry Transport
 By every single second passing, we are moving into a Decentralized world. As Richard Hendriks from Silicon Valley says, "The way it should have built in the first place". 
 
@@ -183,3 +200,5 @@ New features in v0.0.2
 - [saap-ka-baashah](https://github.com/saapo-ka-baadshah)
 
 Feel Free to contribute to the [DecenTT](https://github.com/saapo-ka-baadshah/DecenTT) project.
+
+
